@@ -1,0 +1,40 @@
+<% include partials/header %>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/a1341.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Posts</h1>
+          <span class="subheading">Below is the list of all posts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="clearfix">
+    <a class="btn btn-primary float-right" href="/posts/new">Create Post &rarr;</a>
+  </div><br><br>
+  <div class="row" style="display:flex; flex-wrap:wrap">
+          <% posts.forEach(function(post){%>
+          <div class="col-sm-6 col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="<%= post.image %>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title small font-weight-bold"><%= post.title %></h5>
+                  <p class="card-text text-justify small my-4"><%= post.description %></p>
+                  <a href="<%= post._id %>" style="width:75%" class="btn btn-primary d-block mx-auto">Full Post</a>
+                </div>
+          </div>
+          </div>
+          <%}); %>
+
+  </div>
+  <br><br>
+</div>
+<hr>
+
+<% include partials/footer%>
